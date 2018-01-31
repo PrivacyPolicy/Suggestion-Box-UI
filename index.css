@@ -1,0 +1,92 @@
+body {
+  font-family: 'Ubuntu';
+}
+
+.box {
+  background-image: url(resources/box-back.png);
+  margin: auto;
+  width: 400px;
+  height: 300px;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-size: 400px auto;
+  background-position: center;
+  z-index: 1;
+}
+
+.box.box-front {
+  background-image: url(resources/box-front.png);
+  z-index: 3;
+}
+
+.envelope {
+  margin: auto;
+  width: 500px;
+  height: 400px;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 4;
+}
+
+.text {
+  background: white;
+  border: 1px solid black;
+  box-sizing: border-box;
+  padding: 15px;
+  height: 350px;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.send {
+  margin-top: 5px;
+}
+
+@keyframes hideAway {
+  from {
+    transform: none;
+  }
+  49% {
+    z-index: 4;
+  }
+  50% {
+    transform: translateY(-140px) scale(.33);
+    z-index: 2;
+  }
+  to {
+    transform: translateY(30px) scale(.25);
+    z-index: 2;
+  }
+}
+
+@keyframes slideGrow {
+  from {
+    transform: none;
+  }
+  to {
+    transform: translateY(10px) scale(1.2);
+  }
+}
+
+.submitted > .envelope {
+  animation: hideAway 2s forwards;
+}
+
+.submitted > .box {
+  animation: slideGrow 1s forwards;
+}
+
+.submitted .send {
+  transition: 1s;
+  opacity: 0;
+}
